@@ -8,9 +8,9 @@ var form_text;
 var newCarId;
 var cars = ["Subaru", "Porsche", "BMW", "Mercedez", "McClaren", "Dodge", "Ford", "Hyundai", "Lamborghini", "Chevrolet"];
 
-var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-  person + api_key + "&limit=" + limit + "";
- // $(this).attr("data-person");
+// var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+//   person + api_key + "&limit=" + limit + "";
+// $(this).attr("data-person");
 
 (function load_buttons() {
   for (var i = 0; i < cars.length; i++) {
@@ -20,10 +20,10 @@ var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
     newButton.attr("data-name", cars[i]);
     newButton.text(cars[i]);
     $("#button_area").append(newButton);
-
   }
 }());
 
+$('.car-button').on('click', function());
 
 $("#create_button").on("click", function () {
   form_text = "";
@@ -36,6 +36,13 @@ $("#create_button").on("click", function () {
   newButton.text(form_text);
   $("#button_area").append(newButton);
 });
+
+function create_gifs(){
+    //grab data from button selected
+    // add data to queryurl
+    //run ajax request
+    //add gifs to gif_area
+  }
 
   //   $.ajax({
   //     url: queryURL,
