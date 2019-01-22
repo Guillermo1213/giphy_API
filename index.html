@@ -5,28 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
+    <title>giphyAPI</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <sript src=https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js> </sript> <link rel="stylesheet"
-        type="text/css" href="assets/css/style.css">
-        <title>GiphyAPI</title>
+    <link rel="stylesheet" type="text/css" href="assets\css\style.css">
 </head>
 
 <body>
-    <div id="button_area">
+    <div id="notGifArea" class="row">
+        <div id="button_area">
+
+        </div>
+        <div>
+            <form id="newCar">
+                <div class="form-group">
+                    <label for="buttonCreation">Add a Car</label>
+                    <input type="string" class="form-control" id="carid" placeholder="Car Make">
+                    <small id="emailHelp" class="form-text text-muted">Must be spelled correctly, with proper
+                        capitalization.</small>
+                </div>
+                <button id="create_button" class="btn text-light bg-dark">Create</button>
+            </form>
+        </div>
+    </div>
+    <div id="gif_area" class="row">
 
     </div>
-    <form id="newCar">
-        <div class="form-group">
-            <label for="buttonCreation">Add a Car</label>
-            <input type="string" class="form-control" id="create" placeholder="Car Make">
-        </div>
-        <button id="create_button" type="create" class="btn text-light bg-dark">Create</button>
-    </form>
-    <div id="gif_area">
-        
-    </div>
+
 </body>
 <script src="assets\javascript\app.js"></script>
 
