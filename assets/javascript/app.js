@@ -1,8 +1,11 @@
 var api_key = "&api_key=rsDTmlzMLP7i5V7yhjaxjEUx54ei5UmU";
 var limit = 5;
-var queryURL;
+var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+  carData + api_key + "&limit=" + limit + "";
 var results;
 var rating;
+var q;
+var carData;
 var newButton;
 var form_text;
 var newCars = [];
@@ -11,6 +14,7 @@ var cars = ["Subaru", "Porsche", "BMW", "Mercedez", "McClaren", "Dodge", "Ford",
 
 $(document).ready(function () {
   loadButtons();
+  loadGifs();
 });
 
 $("#create_button").on("click", createButton);
@@ -18,12 +22,11 @@ $("#create_button").on("click", createButton);
 function createButton() {
   event.preventDefault();
   form_text = $('#carid').val();
-  console.log(form_text);
 
   if ((form_text) === "") {
     alert("Nice try, but you didn't put anything in the box silly!");
   } else if (carMakeList.indexOf(form_text) === -1) {
-    alert("Sorry. We know cars.. and that my friend, is no car! Check your spelling or try another make!");
+    alert("Sorry. We know cars.. and " + form_text + " my friend, is no car! Check your spelling or try another make!");
   } else if ((newCars.indexOf(form_text) !== -1) || (cars.indexOf(form_text) !== -1)) {
     alert("We REALLY like " + form_text + " too, but lets stick to a single button for each one!");
   } else {
@@ -50,14 +53,46 @@ function loadButtons() {
     newButton.text(cars[i]);
     $("#button_area").append(newButton);
   }
-};
-
-// $('.car-button').on('click', function(){
-// });
+}
 
 
 
+function loadGifs() {
+  $('.car_button').on('click', function () {
+    carData = ($(this)).data('name');
+   
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    })
 
+      .then(function() {
+
+        console.log(queryURL);
+        
+        //Find what query URl should be
+        // var results = response.data;
+        //We are looking for q, limit, rating, still url and moving url
+        //store response for later use
+        //
+        // for (var i = 0; i < results.length; i++) {
+        //   var gifDiv = $("<div>");
+
+        //   var rating = results[i].rating;
+
+        //   var p = $("<p>").text("Rating: " + rating);
+
+        //   var personImage = $("<img>");
+        //   personImage.attr("src", results[i].images.fixed_height.url);
+
+        //   gifDiv.prepend(p);
+        //   gifDiv.prepend(personImage);
+
+        //   $("#gifs-appear-here").prepend(gifDiv);
+        // }
+      });
+  });
+}
 
 // function create_gifs(){
 //     //grab data from button selected
