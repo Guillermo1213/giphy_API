@@ -6,7 +6,9 @@ var rating;
 var stillGif;
 var originalGif;
 var gifTitle;
+var p;
 var q;
+var gifDiv;
 var carData;
 var newButton;
 var newGif;
@@ -69,17 +71,21 @@ function loadGifs() {
           rating = response.data[i].rating;
           stillGif = response.data[i].images.original_still.url;
           originalGif = response.data[i].images.original.url;
+          gifDiv = $('<div>');
+          gifDiv.attr('class', 'gifDiv');
           newGif = $('<img>');
+          p= $("<p>").text("Rating: " + rating);
           newGif.attr('class', 'image');
-          $('#gif_area').prepend(newGif[i]);
+          gifDiv.append(newGif);
           console.log(rating);
           newGif.addClass("gif");
           newGif.attr("src", stillGif);
           newGif.attr("data-original", originalGif);
           newGif.attr("data-still", stillGif);
           newGif.attr("data-render", 'still');
-          newGif.text(rating);
-          $("#gif_area").prepend(newGif);
+          gifDiv.append(p);
+          gifDiv.prepend(gifTitle);
+          $('#gif_area').prepend(gifDiv);
         }
 
         $(".image").on("click", function () {
